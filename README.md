@@ -6,4 +6,4 @@
 - Mysql 8.0.31
 - MyBatis
 
-jira commit test 2 connect Success!!!!!!!!!!!!!!!!!!!!!!
+jira - jenkins test
