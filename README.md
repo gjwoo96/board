@@ -7,3 +7,6 @@
 - MyBatis
 
 jira - jenkins test
+
+> Mybatis 로직
+Service - ServiceImpl - Dao(SqlSession) - XML
