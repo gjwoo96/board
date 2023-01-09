@@ -24,3 +24,6 @@ hs_err_pid*
 
 # 인텔리제이 셋팅
 .idea
+
+# 타켓 셋팅
+/board/target
