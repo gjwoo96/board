@@ -10,4 +10,4 @@
 
 Service - ServiceImpl - Dao(SqlSession) - XML
 
-> jenkins webhook Test commit;
+> jenkins webhook Test2 commit;
