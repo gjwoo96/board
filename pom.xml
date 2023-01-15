@@ -8,7 +8,10 @@
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
-		<java-version>11</java-version>
+		<encoding>utf-8</encoding>
+		<project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
+		<java.version>11</java.version>
 		<org.springframework-version>5.2.17.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
@@ -191,9 +194,10 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                    <compilerArgument>${java.version}</compilerArgument>
+					<compilerVersion>${java.version}</compilerVersion>
                     <showWarnings>true</showWarnings>
                     <showDeprecation>true</showDeprecation>
+					<encoding>${encoding}</encoding>
                 </configuration>
             </plugin>
             <plugin>
