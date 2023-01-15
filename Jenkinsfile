@@ -1,11 +1,11 @@
 pipeline {
   agent any
   stages {
-    stage('test') {
-      steps {
-        echo 'test'
-      }
+    stage('Clone') {
+        steps {
+            echo 'Clone'
+            git branch: 'main', credentialsId: 'nect2r', url: 'https://github.com/gjwoo96/board.git'
+        }
     }
-
   }
 }
