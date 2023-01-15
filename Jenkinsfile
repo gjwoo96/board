@@ -19,7 +19,7 @@ pipeline {
      {
         steps {
             sh 'pwd'
-            sh 'mvn -f board/pom.xml clean install -P release'
+            sh 'mvn -f pom.xml clean install -P release'
             archive '**/target/*.war'
         }
      }
