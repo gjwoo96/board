@@ -5,7 +5,7 @@ CURRENT_TOMCAT_2="$(netstat -nap | grep :::9091 | awk '{print $6"\t"$11}')"
 echo "> 구동여부 1번 : ${CURRENT_TOMCAT_1}"
 echo "> 구동여부 2번 : ${CURRENT_TOMCAT_2}"
 CURRENT_JENKINS_DIR=/var/lib/jenkins/workspace/github-board_main/
-CURRENT_JENKINS_BUILD_FILE=/var/lib/jenkins/workspace/github-board_main/target/board-1.0.0.war
+CURRENT_JENKINS_BUILD_FILE=/var/lib/jenkins/workspace/github-board_main/target/*.war
 
 if [ "${CURRENT_TOMCAT_1}" == LISTEN ]
 then
@@ -28,7 +28,7 @@ fi
 echo "> IDLE_TOMCAT 배포"
 sudo fuser -k -n tcp ${IDLE_PORT}
 sudo ls "${CURRENT_JENKINS_BUILD_FILE}"
-sudo cp "${CURRENT_JENKINS_BUILD_FILE} ${IDLE_TOMCAT_DIR}/webapps/"
+sudo cp "${CURRENT_JENKINS_BUILD_FILE}" "${IDLE_TOMCAT_DIR}/webapps/"
 sudo rm "${IDLE_TOMCAT_DIR}/webapps/board.war"
 sudo mv "${IDLE_TOMCAT_DIR}/webapps/board-1.0.0.war board.war"
 sudo sh "${IDLE_TOMCAT_DIR}/bin/startup.sh"
@@ -42,7 +42,7 @@ echo "> Health check"
 for retry_count in {1..10}
 do
   response="$(curl -L -k -s -o /dev/null -w "%{http_code}\n" localhost:${IDLE_PORT}/board)"
-  up_count="$(echo "${response}" | grep '200' | -cl)"
+  up_count="$(echo "${response}" | grep '200' | wc -l)"
 
   if [ "${up_count}" -ge 1 ]
   then
