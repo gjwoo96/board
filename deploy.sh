@@ -28,7 +28,7 @@ fi
 echo "> IDLE_TOMCAT 배포"
 sudo fuser -k -n tcp ${IDLE_PORT}
 sudo cp "${CURRENT_JENKINS_BUILD_FILE} ${IDLE_TOMCAT_DIR}/webapps/board.war"
-sudo "${IDLE_TOMCAT_DIR}/bin/ ./startup.sh"
+sudo sh "${IDLE_TOMCAT_DIR}/bin/startup.sh"
 
 echo "> IDEL : ${IDLE_TOMCAT} 10초 후 Health check 시작"
 echo "> curl -L -k -s -o /dev/null -w "%{http_code}\n" localhost:${IDLE_PORT}/board"
@@ -64,4 +64,4 @@ done
 echo "> 스위칭을 시도합니다..."
 sleep 10
 
-sudo /CURRENT_JENKINS_DIR ./switch.sh
+sudo sh "${CURRENT_JENKINS_DIR}/switch.sh"
