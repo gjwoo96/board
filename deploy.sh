@@ -28,8 +28,8 @@ fi
 echo "> IDLE_TOMCAT 배포"
 sudo fuser -k -n tcp ${IDLE_PORT}
 sudo cp "${CURRENT_JENKINS_BUILD_FILE} ${IDLE_TOMCAT_DIR}/webapps"
-sudo rm board.war
-sudo mv board*.war board.war
+sudo rm "${IDLE_TOMCAT_DIR}/webapps/board.war"
+sudo mv "${IDLE_TOMCAT_DIR}/webapps/board*.war board.war"
 sudo sh "${IDLE_TOMCAT_DIR}/bin/startup.sh"
 
 echo "> IDEL : ${IDLE_TOMCAT} 10초 후 Health check 시작"
