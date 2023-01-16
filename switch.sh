@@ -19,7 +19,7 @@ fi
 
 echo "> 전환할 Port: ${SW_IDLE_PORT}"
 echo "> Port 전환"
-echo "set \$board_service_url http://localhost:${SW_IDLE_PORT};" | sudo tee /etc/nginx/services/board-service-url.inc
+echo "set \$board_service_url http://127.0.0.1:${SW_IDLE_PORT};" | sudo tee /etc/nginx/services/board-service-url.inc
 
 echo "> Nginx Current Proxy Port: ${SW_IDLE_PORT}"
 
