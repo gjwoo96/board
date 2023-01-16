@@ -32,7 +32,6 @@ sudo cp -iv "${CURRENT_JENKINS_BUILD_FILE}"/*.war "${IDLE_TOMCAT_DIR}/webapps/bo
 sudo sh "${IDLE_TOMCAT_DIR}/bin/startup.sh"
 
 echo "> IDEL : ${IDLE_TOMCAT} 10초 후 Health check 시작"
-echo "> curl -L -k -s -o /dev/null -w "%{http_code}\n" localhost:${IDLE_PORT}/board"
 sleep 10
 
 echo "> Health check"
