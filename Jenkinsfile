@@ -27,6 +27,7 @@ pipeline {
     stage('deploy')
     {
         steps {
+            echo "start deploy"
             sh ./deploy.sh
         }
     }
