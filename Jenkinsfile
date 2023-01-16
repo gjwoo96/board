@@ -28,6 +28,9 @@ pipeline {
     {
         steps {
             echo "start deploy"
+            sh 'ls -al'
+            sh 'touch deploy.sh'
+            sh 'touch switch.sh'
             sh './deploy.sh'
         }
     }
