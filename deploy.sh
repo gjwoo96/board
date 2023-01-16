@@ -64,4 +64,4 @@ done
 echo "> 스위칭을 시도합니다..."
 sleep 10
 
-sudo "${CURRENT_JENKINS_DIR}" ./switch.sh
+sudo bash "${CURRENT_JENKINS_DIR}/switch.sh"
