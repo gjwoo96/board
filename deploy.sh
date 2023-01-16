@@ -27,7 +27,9 @@ fi
 
 echo "> IDLE_TOMCAT 배포"
 sudo fuser -k -n tcp ${IDLE_PORT}
-sudo cp "${CURRENT_JENKINS_BUILD_FILE} ${IDLE_TOMCAT_DIR}/webapps/board.war"
+sudo cp "${CURRENT_JENKINS_BUILD_FILE} ${IDLE_TOMCAT_DIR}/webapps"
+sudo rm board.war
+sudo mv board*.war board.war
 sudo sh "${IDLE_TOMCAT_DIR}/bin/startup.sh"
 
 echo "> IDEL : ${IDLE_TOMCAT} 10초 후 Health check 시작"
@@ -39,7 +41,7 @@ echo "> Health check"
 for retry_count in {1..10}
 do
   response="$(curl -L -k -s -o /dev/null -w "%{http_code}\n" localhost:${IDLE_PORT}/board)"
-  up_count="$(echo "${response}" | grep 'UP' | -cl)"
+  up_count="$(echo "${response}" | grep '200' | -cl)"
 
   if [ "${up_count}" -ge 1 ]
   then
