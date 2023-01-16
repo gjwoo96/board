@@ -25,7 +25,7 @@ echo "> Nginx Current Proxy Port: ${IDLE_PORT}"
 echo "> Nginx Reload"
 sudo service nginx reload
 
-echo "> 반대 port 종료"
+echo "> 반대 port 종료T"
 if [ "${IDLE_PORT}" == 9090 ]
 then
   IDLE_PID="$(lsof -t -i :9091 -s TCP:LISTEN)"

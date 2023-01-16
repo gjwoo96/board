@@ -61,7 +61,7 @@ do
   sleep 10
 done
 
-echo "> 스위칭을 시도합니다..."
+echo "> 스위칭을 시도합니다...T"
 sleep 10
 
 sudo sh "${CURRENT_JENKINS_DIR}/switch.sh"
