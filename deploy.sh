@@ -87,12 +87,8 @@ echo "${SW_IDLE_PID}"
 
 if [[ "${IDLE_PORT}" == 9090 ]]
 then
-  SW_IDLE_PID="$(lsof -ti :9091 -s TCP:LISTEN)"
-  echo "T1 : ${SW_IDLE_PID}"
+  kill -9 $(lsof -ti:9091)
 elif [[ "${IDLE_PORT}" == 9091 ]]
 then
-  SW_IDLE_PID="$(lsof -ti :9090 -s TCP:LISTEN)"
-  echo "T2 : ${SW_IDLE_PID}"
+  kill -9 $(lsof -ti:9090d)
 fi
-
-sudo kill -9 "${SW_IDLE_PID}"
