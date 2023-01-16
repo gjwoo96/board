@@ -18,12 +18,12 @@ fi
 
 echo "> 전환할 Port: ${IDLE_PORT}"
 echo "> Port 전환"
-echo "set \$board_service_url http://localhost:${IDLE_PORT};" | tee /etc/nginx/services/board-service-url.inc
+echo "set \$board_service_url http://localhost:${IDLE_PORT};" | sudo tee /etc/nginx/services/board-service-url.inc
 
 echo "> Nginx Current Proxy Port: ${IDLE_PORT}"
 
 echo "> Nginx Reload"
-service nginx reload
+sudo service nginx reload
 
 echo "> 반대 port 종료"
 if [ "${IDLE_PORT}" == 9090 ]
@@ -34,4 +34,4 @@ then
   IDLE_PID="$(lsof -t -i :9090 -s TCP:LISTEN)"
 fi
 
-kill -9 "${IDLE_PID}"
+sudo kill -9 "${IDLE_PID}"
