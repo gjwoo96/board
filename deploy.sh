@@ -27,9 +27,11 @@ fi
 
 echo "> IDLE_TOMCAT 배포"
 sudo fuser -k -n tcp ${IDLE_PORT}
-sudo ls "${CURRENT_JENKINS_BUILD_FILE}"
-sudo cp "${CURRENT_JENKINS_BUILD_FILE}"/*.war "${IDLE_TOMCAT_DIR}/webapps/"
-sudo rm "${IDLE_TOMCAT_DIR}"/webapps/board.war
+sudo rm "${IDLE_TOMCAT_DIR}/webapps/board.war"
+sudo cp -iv"${CURRENT_JENKINS_BUILD_FILE}"/*.war "${IDLE_TOMCAT_DIR}/webapps/board.war"
+
+exit 1
+
 sudo mv "${IDLE_TOMCAT_DIR}"/webapps/*.war board.war
 sudo sh "${IDLE_TOMCAT_DIR}/bin/startup.sh"
 
