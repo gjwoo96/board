@@ -1,13 +1,14 @@
+#!/bin/bash
 echo "> 현재 구동중인 Port 확인"
 CURRENT_TOMCAT_1="$(netstat -nap | grep :::9090 | awk '{print $6"\t"$11}')"
 CURRENT_TOMCAT_2="$(netstat -nap | grep :::9091 | awk '{print $6"\t"$11}')"
 echo "> 구동여부 1번 : ${CURRENT_TOMCAT_1}"
 echo "> 구동여부 2번 : ${CURRENT_TOMCAT_2}"
 
-if [ "${CURRENT_TOMCAT_1}" == LISTEN ]
+if [[ "${CURRENT_TOMCAT_1}" == *LISTEN* ]]
 then
   IDLE_PORT=9091
-elif [ "${CURRENT_TOMCAT_2}" == LISTEN ]
+elif [[ "${CURRENT_TOMCAT_2}" == *LISTEN* ]]
 then
   IDLE_PORT=9090
 else

@@ -4,15 +4,15 @@ CURRENT_TOMCAT_1="$(netstat -nap | grep :::9090 | awk '{print $6"\t"$11}')"
 CURRENT_TOMCAT_2="$(netstat -nap | grep :::9091 | awk '{print $6"\t"$11}')"
 echo "> 구동여부 1번 : ${CURRENT_TOMCAT_1}"
 echo "> 구동여부 2번 : ${CURRENT_TOMCAT_2}"
-CURRENT_JENKINS_DIR=/var/lib/jenkins/workspace/github-board_main/
+CURRENT_JENKINS_DIR=/var/lib/jenkins/workspace/github-board_main
 CURRENT_JENKINS_BUILD_FILE=/var/lib/jenkins/workspace/github-board_main/target
 
-if [ "${CURRENT_TOMCAT_1}" == LISTEN ]
+if [[ "${CURRENT_TOMCAT_1}" == *LISTEN* ]]
 then
   IDLE_TOMCAT=2
   IDLE_TOMCAT_DIR=/opt/tomcat-2
   IDLE_PORT=9091
-elif [ "${CURRENT_TOMCAT_2}" == LISTEN ]
+elif [[ "${CURRENT_TOMCAT_2}" == *LISTEN* ]]
 then
   IDLE_TOMCAT=1
   IDLE_TOMCAT_DIR=/opt/tomcat-1
@@ -29,7 +29,7 @@ echo "> IDLE_TOMCAT 배포"
 sudo fuser -k -n tcp ${IDLE_PORT}
 sudo ls "${CURRENT_JENKINS_BUILD_FILE}"
 sudo cp "${CURRENT_JENKINS_BUILD_FILE}"/*.war "${IDLE_TOMCAT_DIR}/webapps/"
-sudo rm "${IDLE_TOMCAT_DIR}/webapps/board.war"
+sudo rm "${IDLE_TOMCAT_DIR}"/webapps/board.war
 sudo mv "${IDLE_TOMCAT_DIR}"/webapps/*.war board.war
 sudo sh "${IDLE_TOMCAT_DIR}/bin/startup.sh"
 
