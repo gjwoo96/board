@@ -64,4 +64,6 @@ done
 echo "> 스위칭을 시도합니다..."
 sleep 10
 
+export IDLE_PORT
+
 sudo bash "${CURRENT_JENKINS_DIR}/switch.sh"
