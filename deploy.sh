@@ -80,15 +80,11 @@ echo "> Nginx Reload"
 sudo service nginx reload
 
 echo "> 반대 port 종료"
-echo "${IDLE_PORT}"
-SW_IDLE_PID="$(lsof -ti :9091 -s TCP:LISTEN)"
-SW_IDLE_PID="$(lsof -ti :9090 -s TCP:LISTEN)"
-echo "${SW_IDLE_PID}"
 
 if [[ "${IDLE_PORT}" == 9090 ]]
 then
   kill -9 $(lsof -ti:9091)
 elif [[ "${IDLE_PORT}" == 9091 ]]
 then
-  kill -9 $(lsof -ti:9090d)
+  kill -9 $(lsof -ti:9090)
 fi
