@@ -28,7 +28,7 @@ pipeline {
     {
         steps {
             echo "start deploy"
-            sh ./deploy.sh
+            sh './deploy.sh'
         }
     }
   }
