@@ -4,8 +4,8 @@ CURRENT_TOMCAT_1="$(netstat -nap | grep :::9090 | awk '{print $6"\t"$11}')"
 CURRENT_TOMCAT_2="$(netstat -nap | grep :::9091 | awk '{print $6"\t"$11}')"
 echo "> 구동여부 1번 : ${CURRENT_TOMCAT_1}"
 echo "> 구동여부 2번 : ${CURRENT_TOMCAT_2}"
-CURRENT_JENKINS_DIR="/var/lib/jenkins/workspace/github-board_main/"
-CURRENT_JENKINS_BUILD_FILE="/var/lib/jenkins/workspace/github-board_main/target/board-1.0.0.war"
+CURRENT_JENKINS_DIR=/var/lib/jenkins/workspace/github-board_main/
+CURRENT_JENKINS_BUILD_FILE=/var/lib/jenkins/workspace/github-board_main/target/board*.war
 
 if [ "${CURRENT_TOMCAT_1}" == LISTEN ]
 then
