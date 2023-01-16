@@ -4,7 +4,7 @@ SW_CURRENT_TOMCAT_1="$(netstat -nap | grep :::9090 | awk '{print $6"\t"$11}')"
 SW_CURRENT_TOMCAT_2="$(netstat -nap | grep :::9091 | awk '{print $6"\t"$11}')"
 echo "> 구동여부 1번 : ${SW_CURRENT_TOMCAT_1}"
 echo "> 구동여부 2번 : ${SW_CURRENT_TOMCAT_2}"
-IDLE_PORT=[$IDLE_PORT]
+IDLE_PORT="${EX_IDLE_PORT}"
 
 echo "> 전환할 Port: ${IDLE_PORT}"
 echo "> Port 전환"
