@@ -28,6 +28,7 @@ pipeline {
     {
         steps {
             echo "start deploy"
+            echo "connect jira deploy"
             sh 'chmod 755 deploy.sh'
             sh './deploy.sh'
         }
