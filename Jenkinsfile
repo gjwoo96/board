@@ -29,7 +29,6 @@ pipeline {
         steps {
             echo "start deploy"
             sh 'chmod 755 deploy.sh'
-            sh 'chmod 755 switch.sh'
             sh './deploy.sh'
         }
     }

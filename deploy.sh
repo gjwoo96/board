@@ -88,3 +88,5 @@ elif [[ "${IDLE_PORT}" == 9091 ]]
 then
   kill -9 $(lsof -ti:9090)
 fi
+
+exit 0
