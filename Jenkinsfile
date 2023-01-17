@@ -24,7 +24,7 @@ pipeline {
         }
     }
 
-    stage('deploy')
+    stage('deploy to board')
     {
         steps {
             echo "start deploy"
